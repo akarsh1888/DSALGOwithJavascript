@@ -17,27 +17,25 @@
 //       '### '
 //       '####'
 
-
-
 // -----Solution 2----
-function steps(n, row=n,stair='') { 
+function steps(n, row = 0, stair = "") {
+  if (row === n) {
+    return;
+  }
 
+  if (stair.length === n) {
+    console.log(stair);
+    return steps(n, row + 1);
+  }
 
+  if (stair.length <= row) {
+    stair += "#";
+  } else {
+    stair += " ";
+  }
 
+  return steps(n, row, stair);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // -----Solution----1
 
@@ -56,8 +54,5 @@ function steps(n, row=n,stair='') {
 //     console.log(stair);
 //   }
 // }
-
-
-
 
 module.exports = steps;
